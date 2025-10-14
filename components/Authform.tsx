@@ -34,7 +34,6 @@ const router = useRouter();
     },
   })
 
-
   function onSubmit(values: z.infer<typeof formSchema>) {
     try{
       if(type === 'sign-up'){
