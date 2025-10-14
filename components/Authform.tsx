@@ -43,7 +43,8 @@ const Authform = () => {
     <div className="card-border lg:min-w-[566px] ">
       <div className="flex flex-col gap-6 card py-14 px-10">
         <div className="flex flex-row gap-2 justify-center ">
-          <Image src="/bbot.png" alt="logo" height={60} width={60}/>
+          <Image src="/bbot.png" alt="logo" height={32} width={40}/>
+          <h2 className="text-primary-100">MockMate</h2>
 
         </div>
       </div>
