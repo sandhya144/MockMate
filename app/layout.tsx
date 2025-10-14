@@ -11,6 +11,11 @@ const monaSans = Mona_Sans({
 export const metadata: Metadata = {
   title: "MockMate",
   description: "An AI-powered interview buddy, turning practice into confidence.",
+  icons: {
+    icon: [
+      { url: "/bbot.png", type: "image/png" }, // favicon in PNG
+    ],
+  },
 };
 
 export default function RootLayout({
