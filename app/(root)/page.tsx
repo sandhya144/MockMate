@@ -10,10 +10,11 @@ import {
 } from "@/lib/actions/general.action";
 import { getCurrentUser } from "@/lib/actions/auth.action";
 
-async function Home() {
+const Page = async () => {
 
-   const user = await getCurrentUser();
+const user = await getCurrentUser();
 
+// parallel request {parallel data fetches}
   const [userInterviews, allInterview] = await Promise.all([
     getInterviewsByUserId(user?.id!),
     getLatestInterviews({ userId: user?.id! }),
@@ -62,7 +63,7 @@ async function Home() {
               />
             ))
           ) : (
-            <p>You haven&apos;t taken any interviews yet</p>
+            <p>You haven't taken any interviews yet.</p>
           )}
         </div>
       </section>
@@ -85,7 +86,7 @@ async function Home() {
               />
             ))
           ) : (
-            <p>There are no interviews available</p>
+            <p>There are no new interviews available. </p>
           )}
         </div>
       </section>
@@ -94,4 +95,4 @@ async function Home() {
   );
 };
 
-export default Home;
+export default Page;
