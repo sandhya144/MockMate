@@ -131,19 +131,21 @@ export async function isAuthenticated() {
   return !! user; // bool value 
 }
 
-export async function getInterviewByUserId(userId: string) : Promise<Interview[]> {
-    const interviews = await db
-    .collection('interviews')
-    .where('userId' , '==' ,  userId)
-    .orderBy('createdAt', 'desc')
-    .get();
+// export async function getInterviewsByUserId(userId: string) : Promise<Interview[]> {
+//     const interviews = await db
+//     .collection('interviews')
+//     .where('userId' , '==' ,  userId)
+//     .orderBy('createdAt', 'desc')
+//     .get();
 
-    return interviews.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data()
-    })) as Interview[];
+//     if (interviews.empty) return []; 
 
-} 
+//     return interviews.docs.map((doc) => ({
+//       id: doc.id,
+//       ...doc.data()
+//     })) as Interview[];
+
+// } 
 
 export async function getLatestInterviews(params: GetLatestInterviewsParams) : Promise<Interview[]> {
 

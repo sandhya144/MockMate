@@ -111,12 +111,14 @@ export async function getLatestInterviews(
 
 export async function getInterviewsByUserId(
   userId: string
-): Promise<Interview[] | null> {
+): Promise<Interview[] > {
   const interviews = await db
     .collection("interviews")
     .where("userId", "==", userId)
     .orderBy("createdAt", "desc")
     .get();
+
+    if (interviews.empty) return []; 
 
   return interviews.docs.map((doc) => ({
     id: doc.id,

@@ -11,7 +11,9 @@ import {
 import { getCurrentUser } from "@/lib/actions/auth.action";
 import DisplayTechIcons from "@/components/DisplayTechIcons";
 
-const InterviewDetails = async ({ params }: RouteParams) => {
+
+
+const Page = async ({ params }: RouteParams) => {
   const { id } = await params;
 
   const user = await getCurrentUser();
@@ -32,10 +34,11 @@ const InterviewDetails = async ({ params }: RouteParams) => {
             <Image
               src={getRandomInterviewCover()}
               alt="cover-image"
-              width={40}
-              height={40}
+              width={60}
+              height={60}
               className="rounded-full object-cover size-[40px]"
             />
+
             <h3 className="capitalize">{interview.role} Interview</h3>
           </div>
 
@@ -59,4 +62,4 @@ const InterviewDetails = async ({ params }: RouteParams) => {
   );
 };
 
-export default InterviewDetails;
+export default Page;
