@@ -5,17 +5,19 @@ import { interviewCovers } from "@/constants";
 import { Button } from './ui/button';
 import Link from 'next/link';
 import DisplayTechIcons from './DisplayTechIcons';
+import { getFeedbackByInterviewId } from '@/lib/actions/general.action';
 
 const getRandomInterviewCover = () => {
   const randomIndex = Math.floor(Math.random() * interviewCovers.length);
   return interviewCovers[randomIndex];
 };
 
-const InterviewCard = ({id, userId, role, type, techstack, createdAt} : InterviewCardProps) => {
+const InterviewCard = async ({id, userId, role, type, techstack, createdAt} : InterviewCardProps) => {
 
-    console.log("InterviewCard received id:", id);
+  const feedback = userId && id ? await getFeedbackByInterviewId({interviewId: id, userId}) : null;
+    
 
-    const feedback = null as Feedback | null;
+    // const feedback = null as Feedback | null;
     const normalizedType = /mix/gi.test(type) ? 'Mixed' : type;
     const formattedDate = dayjs(feedback?.createdAt || createdAt || Date.now()).format('MMM D, YYYY');
 

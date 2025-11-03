@@ -2,11 +2,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-
-import {
-  getFeedbackByInterviewId,
-  getInterviewById,
-} from "@/lib/actions/general.action";
+import { getFeedbackByInterviewId, getInterviewById,} from "@/lib/actions/general.action";
 import { Button } from "@/components/ui/button";
 import { getCurrentUser } from "@/lib/actions/auth.action";
 
@@ -15,12 +11,32 @@ const Feedback = async ({ params }: RouteParams) => {
   const user = await getCurrentUser();
 
   const interview = await getInterviewById(id);
-  if (!interview) redirect("/");
+  if (!interview) 
+    redirect("/");
 
   const feedback = await getFeedbackByInterviewId({
     interviewId: id,
     userId: user?.id!,
   });
+
+  console.log(feedback);
+
+if (!feedback) {
+  return (
+    <section className="section-feedback">
+      <h1 className="text-2xl font-semibold text-center mt-10">
+        No feedback available — it seems the interview had no responses.
+      </h1>
+      <div className="flex justify-center mt-6">
+        <Link href="/" className="text-blue-500 underline text-lg">
+          Go back to dashboard
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+
 
   return (
     <section className="section-feedback">
