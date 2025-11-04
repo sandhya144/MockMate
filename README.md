@@ -1,10 +1,10 @@
 # 🤖 MockMate — The AI-Powered Interview Experience
 
-> “Don’t practice until you get it right — practice until you can’t get it wrong.”
+ “Don’t practice until you get it right — practice until you can’t get it wrong.”
  
-> **MockMate** helps you do exactly that. Meet your **AI interviewer**, get **real-time feedback**, and **master your dream role** — all in one place.
+ **MockMate** helps you do exactly that. Meet your **AI interviewer**, get **real-time feedback**, and **master your dream role** — all in one place.
 
-![MockMate Banner]
+
 
 <p align="center">
   <img src="public/banner.png" alt="MockMate Banner" width="100%" />
@@ -65,30 +65,30 @@ Enjoy a **modern**, **minimal**, and **fully responsive** interface that looks g
 
 **🔹Step-by-step Explanation:**
 
-## Frontend (Next.js + Tailwind CSS):
+### Frontend (Next.js + Tailwind CSS):
 The user interacts with a beautiful, responsive interface built with Next.js and TailwindCSS.
 This includes the login page, dashboard, and interview screen.
 
-## Firebase (Auth + Firestore):
+### Firebase (Auth + Firestore):
 Firebase handles two main things:
 
 Authentication: Sign Up / Sign In using email and password.
 
 Data Storage: Saves user data, interview sessions, and transcripts securely in Firestore.
 
-## Vapi Voice Agent + Google Gemini (AI Brain):
+### Vapi Voice Agent + Google Gemini (AI Brain):
 When the user starts an interview:
 
 Vapi AI creates a voice-based conversation (like talking to a real interviewer).
 
 Google Gemini provides context-aware answers and feedback using custom prompts you’ve written (so it knows the role, tone, and difficulty level).
 
-## AI Feedback Engine:
+### AI Feedback Engine:
 After the interview ends, the system generates personalized feedback — highlighting strengths, weaknesses, and improvement tips.
 This feedback is stored in the user’s dashboard for review.
 
 
-## 🪄 Custom Prompting Power
+### 🪄 Custom Prompting Power
 
 MockMate doesn’t rely on generic AI answers.  
 It uses **custom prompt engineering** to make every interview feel unique and real. The AI tailors its tone, questions, and feedback based on:
@@ -174,19 +174,20 @@ mockmate/
 └── public/             
 
 
-### 🌟 Vision
+## 🌟 Vision
 
 MockMate represents the future of AI learning —
 a bridge between technology and self-improvement, designed for people who want to grow smarter, faster, and more confident in interviews.
 
 Be interview-ready. Be unstoppable. Be the 1%.
 
-### 🧑‍🎓 Author
+## 🧑‍🎓 Author
 
 👩‍💻 Sandhya Pandey
+
 🔗 LinkedIn
 
-### ⭐ Show Your Support
+## ⭐ Show Your Support
 
 If you found MockMate inspiring or helpful, please consider giving it a ⭐ on GitHub!
 It motivates future innovations and helps others discover it.
