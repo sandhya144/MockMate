@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 MockMate — The AI-Powered Interview Experience
 
-## Getting Started
+> “Don’t practice until you get it right — practice until you can’t get it wrong.”
+ 
+> **MockMate** helps you do exactly that. Meet your **AI interviewer**, get **real-time feedback**, and **master your dream role** — all in one place.
 
-First, run the development server:
+![MockMate Banner]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<p align="center">
+  <img src="public/banner.png" alt="MockMate Banner" width="100%" />
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🎯 Live Demo  
+🔗 [https://mock-mate-ashen.vercel.app](https://mock-mate-ashen.vercel.app/sign-in)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🧠 What is MockMate?
 
-To learn more about Next.js, take a look at the following resources:
+**MockMate** is not just another web app — it’s your **personal AI interview partner**.  
+Built with **Next.js**, **Firebase**, **Tailwind CSS**, and powered by **Google Gemini** & **Vapi AI Voice Agents**, it helps users **prepare for job interviews** through **realistic AI conversations**, **instant performance feedback**, and **smart insights**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Whether you're preparing for your **first job** or a **career leap**, MockMate brings your interview practice to life — literally.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⚡ Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Category | Technology |
+|-----------|-------------|
+| Frontend | **Next.js**, **Tailwind CSS**, **shadcn/ui** |
+| Backend | **Firebase Authentication**, **Firestore Database** |
+| AI & Voice | **Vapi AI**, **Google Gemini** |
+| Validation | **Zod** |
+| Hosting | **Vercel** |
+
+
+
+## 🧩 Core Features
+
+### 🔐 Authentication  
+Sign up and sign in securely using **Firebase Email/Password Authentication**.
+
+### 🎙️ AI Voice Interviews  
+Generate and take interviews with **Vapi AI Voice Agents** — practice talking like a real conversation with an intelligent interviewer.
+
+### 🧾 Instant AI Feedback  
+Receive **personalized and structured feedback** based on your interview responses — powered by **Google Gemini**.
+
+### 📊 Dashboard Management  
+View all your created interviews, track your progress, and revisit past sessions with detailed data.
+
+### 💬 Interactive Transcripts  
+Get **real-time transcripts** of your interview, with timestamps and AI commentary.
+
+### 🧱 Modular Architecture  
+Built with reusable and maintainable components for scalability and developer ease.
+
+### 📱 Responsive UI  
+Enjoy a **modern**, **minimal**, and **fully responsive** interface that looks great on any device.
+
+
+
+## 🧠 How It Works
