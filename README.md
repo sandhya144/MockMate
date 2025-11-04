@@ -63,16 +63,7 @@ Enjoy a **modern**, **minimal**, and **fully responsive** interface that looks g
 
 ## 🧠 How It Works
 
-Frontend (Next.js + Tailwind)
-       ↓
-Firebase (Authentication + Firestore)
-       ↓
-Vapi Voice Agent ↔ Google Gemini (Custom Prompting)
-       ↓
-AI Feedback Engine
-
-
-🔹Step-by-step Explanation:
+**🔹Step-by-step Explanation:**
 
 ## Frontend (Next.js + Tailwind CSS):
 The user interacts with a beautiful, responsive interface built with Next.js and TailwindCSS.
@@ -127,7 +118,6 @@ MockMate isn’t just built — it’s **crafted** to inspire the future of AI-b
 - 🌐 Support for multilingual interviews  
 - 🪞 Personality insights and emotional feedback  
 
----
 
 ## 🧑‍💻 Getting Started
 
@@ -172,16 +162,16 @@ Then visit 👉 http://localhost:3000
 ## 🧱 Project Structure
 mockmate/
 ├── app/
-│   ├── (auth)/         # Sign In / Sign Up Pages
-│   ├── (dashboard)/    # User Dashboard
-│   ├── (interview)/    # Interview Page
-│   └── layout.tsx      # Layout Configuration
-│
-├── components/         # Reusable UI Components
-├── lib/                # Firebase Config & Helper Functions
-├── styles/             # Tailwind CSS Styling
-├── utils/              # Zod Schemas & API Helpers
-└── public/             # Static Assets
+│   ├── (auth)/         
+│   ├── (dashboard)/    
+│   ├── (interview)/   
+│   └── layout.tsx     
+|
+├── components/         
+├── lib/              
+├── styles/            
+├── utils/              
+└── public/             
 
 
 ### 🌟 Vision
