@@ -167,39 +167,37 @@ npm run dev
 Then visit 👉 http://localhost:3000  to see MockMate in action.
 
 
-project_structure:
-  mockmate:
-    app:
-      - (auth): "Sign In / Sign Up Pages"
-      - (dashboard): "User Dashboard"
-      - (interview): "Interview Page"
-      - layout.tsx: "Layout Configuration"
-    components: "Reusable UI Components"
-    lib: "Firebase Config & Helper Functions"
-    styles: "Tailwind CSS Styling"
-    utils: "Zod Schemas & API Helpers"
-    public: "Static Assets"
+### 🧱 Project Structure
+mockmate/
+├── app/
+│   ├── (auth)/         # Sign In / Sign Up Pages
+│   ├── (dashboard)/    # User Dashboard
+│   ├── (interview)/    # Interview Page
+│   └── layout.tsx      # Layout Configuration
+│
+├── components/         # Reusable UI Components
+├── lib/                # Firebase Config & Helper Functions
+├── styles/             # Tailwind CSS Styling
+├── utils/              # Zod Schemas & API Helpers
+└── public/             # Static Assets
 
-vision:
-  title: "Future of AI Learning"
-  description: >
-    MockMate represents the future of AI learning — a bridge between technology and self-improvement,
-    designed for people who want to grow smarter, faster, and more confident in interviews.
-  mission: "Be interview-ready. Be unstoppable. Be the 1%."
+## 🌟 Vision
 
-author:
-  name: "Sandhya Pandey"
-  links:
-    linkedin: "https://linkedin.com"
-    
+MockMate represents the future of AI learning —
+a bridge between technology and self-improvement, designed for people who want to grow smarter, faster, and more confident in interviews.
 
-show_support:
-  message: >
-    If you found MockMate inspiring or helpful, please consider giving it a ⭐ on GitHub!
-    It motivates future innovations and helps others discover it.
-  built_with:
-    - "Next.js"
-    - "Firebase"
-    - "TailwindCSS"
-    - "AI Magic ✨"
-  love_note: "Built with ❤️ by Sandhya Pandey"
+Be interview-ready. Be unstoppable. Be the 1%.
+
+## 🧑‍🎓 Author
+
+👩‍💻 Sandhya Pandey
+📍 B.Tech Student | Passionate about AI + Web Development
+🔗 LinkedIn
+ • Portfolio
+
+## ⭐ Show Your Support
+
+If you found MockMate inspiring or helpful, please consider giving it a ⭐ on GitHub!
+It motivates future innovations and helps others discover it.
+
+Built with ❤️ using Next.js, Firebase, TailwindCSS, and AI magic ✨
