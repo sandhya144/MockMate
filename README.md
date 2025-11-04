@@ -164,10 +164,12 @@ GEMINI_API_KEY=your_gemini_key
 # Run the development server
 npm run dev
 
-Then visit 👉 http://localhost:3000  to see MockMate in action.
+```
+
+Then visit 👉 http://localhost:3000
 
 
-### 🧱 Project Structure
+## 🧱 Project Structure
 mockmate/
 ├── app/
 │   ├── (auth)/         # Sign In / Sign Up Pages
@@ -181,23 +183,22 @@ mockmate/
 ├── utils/              # Zod Schemas & API Helpers
 └── public/             # Static Assets
 
-## 🌟 Vision
+
+### 🌟 Vision
 
 MockMate represents the future of AI learning —
 a bridge between technology and self-improvement, designed for people who want to grow smarter, faster, and more confident in interviews.
 
 Be interview-ready. Be unstoppable. Be the 1%.
 
-## 🧑‍🎓 Author
+### 🧑‍🎓 Author
 
 👩‍💻 Sandhya Pandey
-📍 B.Tech Student | Passionate about AI + Web Development
 🔗 LinkedIn
- • Portfolio
 
-## ⭐ Show Your Support
+### ⭐ Show Your Support
 
 If you found MockMate inspiring or helpful, please consider giving it a ⭐ on GitHub!
 It motivates future innovations and helps others discover it.
 
-Built with ❤️ using Next.js, Firebase, TailwindCSS, and AI magic ✨
+Built with ❤️ using Next.js, Firebase, TailwindCSS, and AI magic.✨
