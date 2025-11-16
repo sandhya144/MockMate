@@ -62,6 +62,18 @@ export async function createFeedback(params: CreateFeedbackParams) {
 
     await feedbackRef.set(feedback);
 
+// added error fix ...
+
+ // ALSO update the corresponding interview document
+  await db.collection("interviews").doc(interviewId).set(
+    {
+      feedbackId: feedbackRef.id,
+      updatedAt: new Date().toISOString(),
+    },
+    { merge: true } // merge so you don’t overwrite existing interview data
+  );
+
+
     return { success: true, feedbackId: feedbackRef.id };
   } catch (error) {
     console.error("Error saving feedback:", error);
