@@ -9,17 +9,17 @@ import { feedbackSchema } from "@/constants";
 export async function createFeedback(params: CreateFeedbackParams) {
   const { interviewId, userId, transcript, feedbackId } = params;
 
-  if (!transcript || transcript.length === 0) {
-    console.log("⚠️ Skipping feedback generation: empty transcript");
-    return null;
-  }
+  // if (!transcript || transcript.length === 0) {
+  //   console.log("⚠️ Skipping feedback generation: empty transcript");
+  //   return null;
+  // }
 
   try {
     const formattedTranscript = transcript
-      .map(
+      .map((
         (sentence: { role: string; content: string }) =>
           `- ${sentence.role}: ${sentence.content}\n`
-      )
+      ))
       .join("");
 
     const { object } = await generateObject({

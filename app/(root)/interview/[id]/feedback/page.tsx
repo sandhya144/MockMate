@@ -21,20 +21,21 @@ const Feedback = async ({ params }: RouteParams) => {
 
   console.log(feedback);
 
-if (!feedback) {
-  return (
-    <section className="section-feedback">
-      <h1 className="text-2xl font-semibold text-center mt-10">
-        No feedback available — it seems the interview had no responses.
-      </h1>
-      <div className="flex justify-center mt-6">
-        <Link href="/" className="text-blue-500 underline text-lg">
-          Go back to dashboard
-        </Link>
-      </div>
-    </section>
-  );
-}
+
+// if (!feedback) {
+//   return (
+//     <section className="section-feedback">
+//       <h1 className="text-2xl font-semibold text-center mt-10">
+//         No feedback available — it seems the interview had no responses.
+//       </h1>
+//       <div className="flex justify-center mt-6">
+//         <Link href="/" className="text-blue-500 text-lg">
+//           Go back to dashboard
+//         </Link>
+//       </div>
+//     </section>
+//   );
+// }
 
 
 

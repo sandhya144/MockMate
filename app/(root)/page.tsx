@@ -29,20 +29,20 @@ const user = await getCurrentUser();
     <section className='card-cta'>
       <div className='flex flex-col gap-6 max-w-lg'>
       <h2>
-        Get interview ready with ai powered practice & feedback.
+        Boost your confidence with AI enabled mock interviews and instant feedback.
       </h2>
       <p className='text-lg '> 
-        Practice on real interview questions & get instant feedback.
+        Train with actual interview questions & receive immediate feedback.
       </p>
 
       <Button asChild className='btn-primary max-sm:w-full'>
       <Link href='/interview'>
-       Start an Interview
+       Start Your Interview
       </Link>
       </Button>
 
       </div>
-      <Image src="/robot.png" alt="robo-dude" width={400} height={400} className="max-sm:hidden"  />
+      <Image src="/robotto.png" alt="robo-dude" width={400} height={400} className="max-sm:hidden"  />
     </section>
 
   
@@ -78,7 +78,7 @@ const user = await getCurrentUser();
               <InterviewCard
                 key={interview.id}
                 userId={user?.id}
-                interviewId={interview.id}
+                id={interview.id}
                 role={interview.role}
                 type={interview.type}
                 techstack={interview.techstack}

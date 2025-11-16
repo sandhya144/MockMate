@@ -42,9 +42,12 @@ interface InterviewCardProps {
   id?: string;
   userId?: string;
   role: string;
+  level: string;
   type: string;
+  questions: string[];
   techstack: string[];
   createdAt?: string;
+  finalzed: boolean
 }
 
 interface AgentProps {
