@@ -99,7 +99,8 @@ export async function getFeedbackByInterviewId(
     .limit(1)
     .get();
 
-  if (querySnapshot.empty) return null;
+  if (querySnapshot.empty) 
+    return null;
 
   const feedbackDoc = querySnapshot.docs[0];
   return { id: feedbackDoc.id, ...feedbackDoc.data() } as Feedback;
