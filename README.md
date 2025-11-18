@@ -5,7 +5,6 @@
  **MockMate** helps you do exactly that. Meet your **AI interviewer**, get **real-time feedback**, and **master your dream role** — all in one place.
 
 
-
 <p align="center">
   <img src="public/banner.png" alt="MockMate Banner" width="100%" />
 </p>
@@ -21,7 +20,7 @@ Whether you're preparing for your **first job** or a **career leap**, MockMate b
 
 ### 🎯 Demo Video
 
-[![Watch the Demo](https://img.youtube.com/vi/KcCg-5KDakk/0.jpg)](https://youtu.be/KcCg-5KDakk)
+[![Watch the Demo](/public/thumbnail.png)](https://youtu.be/KcCg-5KDakk)
 
 
 ## ⚡ Tech Stack
@@ -162,23 +161,23 @@ Then visit 👉 http://localhost:3000
 ## 🧱 Project Structure
 
 mockmate/
-├── app/                    # Next.js App directory
-│   ├── (auth)/             # Auth pages: sign-in, sign-up
-│   ├── (dashboard)/        # User dashboard & interview list
-│   ├── (interview)/        # Interview page & transcript UI
-│   ├── api/                # API route handlers
-│   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Landing page
-├── components/             # Reusable UI components
-│   ├── ui/                 # shadcn/ui components
-│   └── custom/             # Project-specific components
-├── lib/                    # Libraries and config (Firebase, helpers)
-├── utils/                  # Utility functions & validators
-├── styles/                 # Global styling + Tailwind config
-├── public/                 # Images, icons, banners
-├── .env.local              # Environment variables
-├── package.json            # Project dependencies & scripts
-└── README.md               # Project documentation
+├── app/                    │ Next.js App directory
+│   ├── (auth)/             │ Auth pages: sign-in, sign-up
+│   ├── (dashboard)/        │ User dashboard & interview list
+│   ├── (interview)/        │ Interview page & transcript UI
+│   ├── api/                │ API route handlers
+│   ├── layout.tsx          │ Root layout
+│   └── page.tsx            │ Landing page
+├── components/             │ Reusable UI components
+│   ├── ui/                 │ shadcn/ui components (buttons, inputs, modals)
+│   └── custom/             │ Project-specific components (InterviewCard, Navbar)
+├── lib/                    │ Libraries and config (Firebase, helpers)
+├── utils/                  │ Utility functions & validators
+├── styles/                 │ Global styling + Tailwind config
+├── public/                 │ Images, icons, banners
+├── .env.local              │ Environment variables
+├── package.json            │ Project dependencies & scripts
+└── README.md               │ Project documentation
 
 
 ## 🌟 Vision
@@ -186,13 +185,12 @@ mockmate/
 MockMate represents the future of AI learning —
 a bridge between technology and self-improvement, designed for people who want to grow smarter, faster, and more confident in interviews.
 
-Be interview-ready. Be unstoppable. Be the 1%.
+Be interview-ready. Be unstoppable. 
 
 ## 🧑‍🎓 Author
 
 👩‍💻 Sandhya Pandey
 
-🔗 LinkedIn
 
 ## ⭐ Show Your Support
 
