@@ -11,8 +11,8 @@
 </p>
 
 
-### 🎯 Live Demo  
-🔗 [https://mock-mate-ashen.vercel.app](https://mock-mate-ashen.vercel.app/sign-in)
+### 🎯Demo video
+🔗 [https://youtu.be/KcCg-5KDakk](MockMate)
 
 
 ## 🧠 What is MockMate?
@@ -162,16 +162,31 @@ Then visit 👉 http://localhost:3000
 ## 🧱 Project Structure
 mockmate/
 ├── app/
-│   ├── (auth)/         
-│   ├── (dashboard)/    
-│   ├── (interview)/   
-│   └── layout.tsx     
-|
-├── components/         
-├── lib/              
-├── styles/            
-├── utils/              
-└── public/             
+│   ├── (auth)/              # Sign-in, Sign-up pages
+│   ├── (dashboard)/         # User dashboard + interview list
+│   ├── (interview)/         # Interview page + transcript UI
+│   ├── api/                 # Route handlers (API endpoints)
+│   ├── layout.tsx           # Root layout
+│   └── page.tsx             # Landing page
+│
+├── components/              # Reusable UI components
+│   ├── ui/                  # shadcn/ui components
+│   └── custom/              # Project-specific components
+│
+├── lib/                     # Firebase config, helpers
+│
+├── utils/                   # Functions, schema validators (Zod)
+│
+├── styles/                  # Global CSS + Tailwind config
+│
+├── public/                  # Images, banner, icons
+│   └── banner.png
+│
+├── .env.local               # Environment variables (not included in repo)
+├── package.json
+├── tailwind.config.js
+└── README.md
+      
 
 
 ## 🌟 Vision
