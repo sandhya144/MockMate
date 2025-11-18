@@ -11,12 +11,6 @@
 </p>
 
 
-### 🎯 Demo Video
-
-[![Watch the Demo](https://img.youtube.com/vi/KcCg-5KDakk/0.jpg)](https://youtu.be/KcCg-5KDakk)
-
-
-
 ## 🧠 What is MockMate?
 
 **MockMate** is not just another web app — it’s your **personal AI interview partner**.  
@@ -24,6 +18,10 @@ Built with **Next.js**, **Firebase**, **Tailwind CSS**, and powered by **Google 
 
 Whether you're preparing for your **first job** or a **career leap**, MockMate brings your interview practice to life — literally.
 
+
+### 🎯 Demo Video
+
+[![Watch the Demo](https://img.youtube.com/vi/KcCg-5KDakk/0.jpg)](https://youtu.be/KcCg-5KDakk)
 
 
 ## ⚡ Tech Stack
