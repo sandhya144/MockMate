@@ -1,6 +1,9 @@
-# MockMate — AI-Powered Mock Interviews Voice Assistant
+# MockMate
+### AI-Powered Mock Interview Voice Assistant
 
- “Don’t practice until you get it right — practice until you can’t get it wrong.”
+
+*"Don’t practice until you get it right — practice until you can’t get it wrong."*
+
  
  **MockMate** helps you do exactly that. Meet your **AI interviewer**, get **real-time feedback**, and **master your dream role** — all in one place.
 
@@ -65,22 +68,22 @@ Enjoy a **modern**, **minimal**, and **fully responsive** interface that looks g
 **Step-by-step Explanation:**
 
 ### Frontend (Next.js + Tailwind CSS):
-The user interacts with a beautiful, responsive interface built with Next.js and TailwindCSS.
-This includes the login page, dashboard, and interview screen.
+- The user interacts with a beautiful, responsive interface built with Next.js and TailwindCSS.
+- This includes the login page, dashboard, and interview screen.
 
 ### Firebase (Auth + Firestore):
 Firebase handles two main things:
 
-Authentication: Sign Up / Sign In using email and password.
+- Authentication: Sign Up / Sign In using email and password.
 
-Data Storage: Saves user data, interview sessions, and transcripts securely in Firestore.
+- Data Storage: Saves user data, interview sessions, and transcripts securely in Firestore.
 
 ### Vapi Voice Agent + Google Gemini (AI Brain):
 When the user starts an interview:
 
-Vapi AI creates a voice-based conversation (like talking to a real interviewer).
+- Vapi AI creates a voice-based conversation (like talking to a real interviewer).
 
-Google Gemini provides context-aware answers and feedback using custom prompts you’ve written (so it knows the role, tone, and difficulty level).
+- Google Gemini provides context-aware answers and feedback using custom prompts you’ve written (so it knows the role, tone, and difficulty level).
 
 ### AI Feedback Engine:
 After the interview ends, the system generates personalized feedback — highlighting strengths, weaknesses, and improvement tips.
