@@ -5,7 +5,7 @@
 *"Don’t practice until you get it right — practice until you can’t get it wrong."*
 
  
-* **MockMate** helps you do exactly that. Meet your **AI interviewer**, get **real-time feedback**, and **master your dream role** — all in one place.*
+ **MockMate** helps you do exactly that. Meet your **AI interviewer**, get **real-time feedback**, and **master your dream role** — all in one place.
 
 
 
