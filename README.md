@@ -1,4 +1,4 @@
-# MockMate — The AI-Powered Mock Interview Voice Assistant
+# MockMate — AI-Powered Mock Interviews Voice Assistant
 
  “Don’t practice until you get it right — practice until you can’t get it wrong.”
  
@@ -60,9 +60,9 @@ Enjoy a **modern**, **minimal**, and **fully responsive** interface that looks g
 
 
 
-## How It Works
+## How It Works?
 
-** Step-by-step Explanation:**
+**Step-by-step Explanation:**
 
 ### Frontend (Next.js + Tailwind CSS):
 The user interacts with a beautiful, responsive interface built with Next.js and TailwindCSS.
@@ -90,7 +90,7 @@ This feedback is stored in the user’s dashboard for review.
 ### 🪄 Custom Prompting Power
 
 MockMate doesn’t rely on generic AI answers.  
-It uses **custom prompt engineering** to make every interview feel unique and real. The AI tailors its tone, questions, and feedback based on:
+- It uses **custom prompt engineering** to make every interview feel unique and real. The AI tailors its tone, questions, and feedback based on:
 - The **role** you choose (e.g., Frontend Developer, Data Analyst)
 - Your **experience level**
 - Your **performance throughout the conversation**
@@ -100,11 +100,11 @@ Every session feels like a true **human-to-human interview** — powered by next
 
 ## Why MockMate is Built Different
 
-Combines **AI + Voice + Real-time Feedback**  
-Integrates **Google Gemini + Vapi Voice AI** seamlessly  
-Built with **(Next.js 14)**  
-Uses **shadcn/ui + Tailwind CSS** for clean, elegant UI  
-Hosted with **Vercel** for fast global access  
+- Combines **AI + Voice + Real-time Feedback**  
+- Integrates **Google Gemini + Vapi Voice AI** seamlessly.  
+- Built with **(Next.js 14)**  
+- Uses **shadcn/ui + Tailwind CSS** for clean, elegant UI.  
+- Hosted with **Vercel** for fast global access  
 
 MockMate isn’t just built — it’s **crafted** to inspire the future of AI-based learning.
 
@@ -183,7 +183,7 @@ mockmate/
 
 ## Vision
 
-MockMate represents the future of AI learning —
+- MockMate represents the future of AI learning —
 a bridge between technology and self-improvement, designed for people who want to grow smarter, faster, and more confident in interviews.
 
 Be interview-ready. Be unstoppable. 
@@ -195,7 +195,7 @@ Sandhya Pandey
 
 ## Show Your Support
 
-If you found MockMate inspiring or helpful, please consider giving it a ⭐ on GitHub!
-It motivates future innovations and helps others discover it.
+- If you found MockMate inspiring or helpful, please consider giving it a ⭐ on GitHub!
+- It motivates future innovations and helps others discover it.
 
 Built with ❤️ using Next.js, Firebase, TailwindCSS, and AI magic.✨
