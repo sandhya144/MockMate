@@ -1,4 +1,4 @@
-# 🤖 MockMate — The AI-Powered Interview Experience
+# MockMate — The AI-Powered Mock Interview Voice Assistant
 
  “Don’t practice until you get it right — practice until you can’t get it wrong.”
  
@@ -10,7 +10,7 @@
 </p>
 
 
-## 🧠 What is MockMate?
+## What is MockMate?
 
 **MockMate** is not just another web app — it’s your **personal AI interview partner**.  
 Built with **Next.js**, **Firebase**, **Tailwind CSS**, and powered by **Google Gemini** & **Vapi AI Voice Agents**, it helps users **prepare for job interviews** through **realistic AI conversations**, **instant performance feedback**, and **smart insights**.
@@ -18,12 +18,12 @@ Built with **Next.js**, **Firebase**, **Tailwind CSS**, and powered by **Google 
 Whether you're preparing for your **first job** or a **career leap**, MockMate brings your interview practice to life — literally.
 
 
-### 🎯 Demo Video
+### Demo Video
 
 [![Watch the Demo](/public/thumbnail.png)](https://youtu.be/KcCg-5KDakk)
 
 
-## ⚡ Tech Stack
+## Tech Stack
 
 | Category | Technology |
 |-----------|-------------|
@@ -35,7 +35,7 @@ Whether you're preparing for your **first job** or a **career leap**, MockMate b
 
 
 
-## 🧩 Core Features
+## Core Features
 
 ### 🔐 Authentication  
 Sign up and sign in securely using **Firebase Email/Password Authentication**.
@@ -43,14 +43,14 @@ Sign up and sign in securely using **Firebase Email/Password Authentication**.
 ### 🎙️ AI Voice Interviews  
 Generate and take interviews with **Vapi AI Voice Agents** — practice talking like a real conversation with an intelligent interviewer.
 
-### 🧾 Instant AI Feedback  
-Receive **personalized and structured feedback** based on your interview responses — powered by **Google Gemini**.
-
 ### 📊 Dashboard Management  
 View all your created interviews, track your progress, and revisit past sessions with detailed data.
 
 ### 💬 Interactive Transcripts  
 Get **real-time transcripts** of your interview, with timestamps and AI commentary.
+
+### 🧾 Instant AI Feedback  
+Receive **personalized and structured feedback** based on your interview responses — powered by **Google Gemini**.
 
 ### 🧱 Modular Architecture  
 Built with reusable and maintainable components for scalability and developer ease.
@@ -60,9 +60,9 @@ Enjoy a **modern**, **minimal**, and **fully responsive** interface that looks g
 
 
 
-## 🧠 How It Works
+## How It Works
 
-**🔹Step-by-step Explanation:**
+** Step-by-step Explanation:**
 
 ### Frontend (Next.js + Tailwind CSS):
 The user interacts with a beautiful, responsive interface built with Next.js and TailwindCSS.
@@ -98,27 +98,27 @@ It uses **custom prompt engineering** to make every interview feel unique and re
 Every session feels like a true **human-to-human interview** — powered by next-gen AI.
 
 
-## 🚀 Why MockMate is Built Different
+## Why MockMate is Built Different
 
-✅ Combines **AI + Voice + Real-time Feedback**  
-✅ Integrates **Google Gemini + Vapi Voice AI** seamlessly  
-✅ Built with **production-ready architecture (Next.js 14)**  
-✅ Uses **shadcn/ui + Tailwind CSS** for clean, elegant UI  
-✅ Hosted with **Vercel** for fast global access  
+Combines **AI + Voice + Real-time Feedback**  
+Integrates **Google Gemini + Vapi Voice AI** seamlessly  
+Built with **(Next.js 14)**  
+Uses **shadcn/ui + Tailwind CSS** for clean, elegant UI  
+Hosted with **Vercel** for fast global access  
 
 MockMate isn’t just built — it’s **crafted** to inspire the future of AI-based learning.
 
 
-## 🧠 Future Enhancements
+## Future Enhancements
 
-- 🎯 Role-based analytics and performance leaderboard  
-- 🎧 Voice tone and sentiment analysis  
-- 📈 Progress tracking with improvement graphs  
-- 🌐 Support for multilingual interviews  
-- 🪞 Personality insights and emotional feedback  
+- Role-based analytics and performance leaderboard  
+- Voice tone and sentiment analysis  
+- Progress tracking with improvement graphs  
+- Support for multilingual interviews  
+- Personality insights and emotional feedback  
 
 
-## 🧑‍💻 Getting Started
+## Getting Started
 
 ### 🪶 Prerequisites
 - Node.js 18+
@@ -155,10 +155,10 @@ npm run dev
 
 ```
 
-Then visit 👉 http://localhost:3000
+Then visit http://localhost:3000
 
 
-## 🧱 Project Structure
+## Project Structure
 
 ```
 mockmate/
@@ -181,19 +181,19 @@ mockmate/
 └── README.md               │ Project documentation
 ```
 
-## 🌟 Vision
+## Vision
 
 MockMate represents the future of AI learning —
 a bridge between technology and self-improvement, designed for people who want to grow smarter, faster, and more confident in interviews.
 
 Be interview-ready. Be unstoppable. 
 
-## 🧑‍🎓 Author
+## Author
 
-👩‍💻 Sandhya Pandey
+Sandhya Pandey
 
 
-## ⭐ Show Your Support
+## Show Your Support
 
 If you found MockMate inspiring or helpful, please consider giving it a ⭐ on GitHub!
 It motivates future innovations and helps others discover it.
