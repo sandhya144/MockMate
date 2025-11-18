@@ -160,6 +160,7 @@ Then visit 👉 http://localhost:3000
 
 ## 🧱 Project Structure
 
+```
 mockmate/
 ├── app/                    │ Next.js App directory
 │   ├── (auth)/             │ Auth pages: sign-in, sign-up
@@ -178,7 +179,7 @@ mockmate/
 ├── .env.local              │ Environment variables
 ├── package.json            │ Project dependencies & scripts
 └── README.md               │ Project documentation
-
+```
 
 ## 🌟 Vision
 
