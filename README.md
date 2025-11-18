@@ -11,8 +11,10 @@
 </p>
 
 
-### 🎯Demo video
-🔗 [https://youtu.be/KcCg-5KDakk](MockMate)
+### 🎯 Demo Video
+
+[![Watch the Demo](https://img.youtube.com/vi/KcCg-5KDakk/0.jpg)](https://youtu.be/KcCg-5KDakk)
+
 
 
 ## 🧠 What is MockMate?
@@ -160,33 +162,25 @@ Then visit 👉 http://localhost:3000
 
 
 ## 🧱 Project Structure
+
 mockmate/
-├── app/
-│   ├── (auth)/              # Sign-in, Sign-up pages
-│   ├── (dashboard)/         # User dashboard + interview list
-│   ├── (interview)/         # Interview page + transcript UI
-│   ├── api/                 # Route handlers (API endpoints)
+├── app/                    # Next.js App directory
+│   ├── (auth)/             # Auth pages: sign-in, sign-up
+│   ├── (dashboard)/        # User dashboard & interview list
+│   ├── (interview)/        # Interview page & transcript UI
+│   ├── api/                # API route handlers
 │   ├── layout.tsx           # Root layout
 │   └── page.tsx             # Landing page
-│
-├── components/              # Reusable UI components
-│   ├── ui/                  # shadcn/ui components
-│   └── custom/              # Project-specific components
-│
-├── lib/                     # Firebase config, helpers
-│
-├── utils/                   # Functions, schema validators (Zod)
-│
-├── styles/                  # Global CSS + Tailwind config
-│
-├── public/                  # Images, banner, icons
-│   └── banner.png
-│
-├── .env.local               # Environment variables (not included in repo)
-├── package.json
-├── tailwind.config.js
-└── README.md
-      
+├── components/             # Reusable UI components
+│   ├── ui/                 # shadcn/ui components
+│   └── custom/             # Project-specific components
+├── lib/                    # Libraries and config (Firebase, helpers)
+├── utils/                  # Utility functions & validators
+├── styles/                 # Global styling + Tailwind config
+├── public/                 # Images, icons, banners
+├── .env.local              # Environment variables
+├── package.json            # Project dependencies & scripts
+└── README.md               # Project documentation
 
 
 ## 🌟 Vision
