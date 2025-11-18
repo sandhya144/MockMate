@@ -23,4 +23,10 @@ function initFirebaseAdmin() {
   };
 }
 
-export const { auth, db } = initFirebaseAdmin();
+// export const { auth, db } = initFirebaseAdmin();
+
+const admin = initFirebaseAdmin();
+
+export const adminAuth = admin.auth;
+export const adminDB = admin.db;
+

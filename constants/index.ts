@@ -191,6 +191,76 @@ export const feedbackSchema = z.object({
 
 
 
+// export const feedbackSchema = {
+//   type: "object",
+//   properties: {
+//     totalScore: { type: "number" },
+
+//     communicationSkills: {
+//       type: "object",
+//       properties: {
+//         score: { type: "number" },
+//         comment: { type: "string" }
+//       },
+//       required: ["score", "comment"]
+//     },
+
+//     technicalKnowledge: {
+//       type: "object",
+//       properties: {
+//         score: { type: "number" },
+//         comment: { type: "string" }
+//       },
+//       required: ["score", "comment"]
+//     },
+
+//     problemSolving: {
+//       type: "object",
+//       properties: {
+//         score: { type: "number" },
+//         comment: { type: "string" }
+//       },
+//       required: ["score", "comment"]
+//     },
+
+//     culturalFit: {
+//       type: "object",
+//       properties: {
+//         score: { type: "number" },
+//         comment: { type: "string" }
+//       },
+//       required: ["score", "comment"]
+//     },
+
+//     confidenceAndClarity: {
+//       type: "object",
+//       properties: {
+//         score: { type: "number" },
+//         comment: { type: "string" }
+//       },
+//       required: ["score", "comment"]
+//     },
+
+//     strengths: { type: "string" },            // comma separated
+//     areasForImprovement: { type: "string" },  // comma separated
+
+//     finalAssessment: { type: "string" }
+//   },
+
+//   required: [
+//     "totalScore",
+//     "communicationSkills",
+//     "technicalKnowledge",
+//     "problemSolving",
+//     "culturalFit",
+//     "confidenceAndClarity",
+//     "strengths",
+//     "areasForImprovement",
+//     "finalAssessment"
+//   ]
+// };
+
+
 export const interviewCovers = [
   "/covers/adobe.png",
   "/covers/amazon.png",

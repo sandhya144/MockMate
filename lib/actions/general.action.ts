@@ -3,47 +3,134 @@
 import { generateObject } from "ai";
 import { google } from "@ai-sdk/google";
 
-import { db } from "@/firebase/admin";
+import { adminDB } from "@/firebase/admin";
 import { feedbackSchema } from "@/constants";
+
+// export async function createFeedback(params: CreateFeedbackParams) {
+//   const { interviewId, userId, transcript, feedbackId } = params;
+
+//   try {
+//     const formattedTranscript = transcript
+//       .map((
+//         (sentence: { role: string; content: string }) =>
+//           `- ${sentence.role}: ${sentence.content}\n`
+//       ))
+//       .join("");
+
+//     const { object, error: genError  } = await generateObject({
+//       model: google("gemini-2.0-flash-001"),
+//       schema: feedbackSchema,
+//       prompt: `
+//         You are an AI interviewer analyzing a mock interview. Your task is to evaluate the candidate based on structured categories. Be thorough and detailed in your analysis. Don't be lenient with the candidate. If there are mistakes or areas for improvement, point them out.
+//         Transcript:
+//         ${formattedTranscript}
+
+//         Please score the candidate from 0 to 100 in the following areas. Do not add categories other than the ones provided:
+//         - **Communication Skills**: Clarity, articulation, structured responses.
+//         - **Technical Knowledge**: Understanding of key concepts for the role.
+//         - **Problem-Solving**: Ability to analyze problems and propose solutions.
+//         - **Cultural & Role Fit**: Alignment with company values and job role.
+//         - **Confidence & Clarity**: Confidence in responses, engagement, and clarity.
+//         `,
+//       system:
+//         "You are a professional interviewer analyzing a mock interview. Your task is to evaluate the candidate based on structured categories",
+//     });
+
+
+//     if (!object) {
+//   console.error("❌ Gemini schema mismatch:", genError);
+//   throw new Error("Gemini returned invalid schema");
+// }
+
+//     const feedback = {
+//       interviewId: interviewId,
+//       userId: userId,
+//       totalScore: object.totalScore,
+//       categoryScores: object.categoryScores,
+//       strengths: object.strengths,
+//       areasForImprovement: object.areasForImprovement,
+//       finalAssessment: object.finalAssessment,
+//       createdAt: new Date().toISOString(),
+//     };
+
+//     let feedbackRef;
+
+//     if (feedbackId) {
+//       feedbackRef = adminDB.collection("feedback").doc(feedbackId);
+//     } else {
+//       feedbackRef = adminDB.collection("feedback").doc();
+//     }
+
+//     await feedbackRef.set(feedback);
+
+// // added error fix ...
+
+//  // ALSO update the corresponding interview document
+//   await adminDB.collection("interviews").doc(interviewId).set(
+//     {
+//       feedbackId: feedbackRef.id,
+//       updatedAt: new Date().toISOString(),
+//     },
+//     { merge: true } // merge so you don’t overwrite existing interview data
+//   );
+
+
+//     return { success: true, feedbackId: feedbackRef.id };
+//   } catch (error) {
+//     console.error("Error saving feedback:", error);
+//     return { success: false };
+//   }
+// }
+
 
 export async function createFeedback(params: CreateFeedbackParams) {
   const { interviewId, userId, transcript, feedbackId } = params;
 
-  // if (!transcript || transcript.length === 0) {
-  //   console.log("⚠️ Skipping feedback generation: empty transcript");
-  //   return null;
-  // }
-
   try {
     const formattedTranscript = transcript
-      .map((
+      .map(
         (sentence: { role: string; content: string }) =>
           `- ${sentence.role}: ${sentence.content}\n`
-      ))
+      )
       .join("");
 
-    const { object } = await generateObject({
+    const { object} = await generateObject({
       model: google("gemini-2.0-flash-001"),
       schema: feedbackSchema,
       prompt: `
-        You are an AI interviewer analyzing a mock interview. Your task is to evaluate the candidate based on structured categories. Be thorough and detailed in your analysis. Don't be lenient with the candidate. If there are mistakes or areas for improvement, point them out.
-        Transcript:
-        ${formattedTranscript}
+You are an AI interviewer analyzing a mock interview. 
+Your task is to evaluate the candidate based on the EXACT categories below.
 
-        Please score the candidate from 0 to 100 in the following areas. Do not add categories other than the ones provided:
-        - **Communication Skills**: Clarity, articulation, structured responses.
-        - **Technical Knowledge**: Understanding of key concepts for the role.
-        - **Problem-Solving**: Ability to analyze problems and propose solutions.
-        - **Cultural & Role Fit**: Alignment with company values and job role.
-        - **Confidence & Clarity**: Confidence in responses, engagement, and clarity.
-        `,
+STRICT RULES:
+- Return ONLY the categories EXACTLY as written.
+- Do NOT rename categories.
+- Do NOT add new categories.
+- Scores MUST be numbers.
+- Comments must be detailed.
+
+Transcript:
+${formattedTranscript}
+
+Score the candidate in these EXACT categories:
+
+- Communication Skills
+- Technical Knowledge
+- Problem Solving
+- Cultural Fit
+- Confidence and Clarity
+`,
       system:
-        "You are a professional interviewer analyzing a mock interview. Your task is to evaluate the candidate based on structured categories",
+        "You are a professional interviewer analyzing a mock interview. Your task is to evaluate the candidate based on structured categories.",
     });
 
-    const feedback = {
-      interviewId: interviewId,
-      userId: userId,
+    if (!object) {
+      console.error("❌ Gemini schema mismatch:");
+      throw new Error("Gemini returned invalid schema");
+    }
+
+    const feedbackData = {
+      interviewId,
+      userId,
       totalScore: object.totalScore,
       categoryScores: object.categoryScores,
       strengths: object.strengths,
@@ -55,24 +142,21 @@ export async function createFeedback(params: CreateFeedbackParams) {
     let feedbackRef;
 
     if (feedbackId) {
-      feedbackRef = db.collection("feedback").doc(feedbackId);
+      feedbackRef = adminDB.collection("feedback").doc(feedbackId);
     } else {
-      feedbackRef = db.collection("feedback").doc();
+      feedbackRef = adminDB.collection("feedback").doc();
     }
 
-    await feedbackRef.set(feedback);
+    await feedbackRef.set(feedbackData);
 
-// added error fix ...
-
- // ALSO update the corresponding interview document
-  await db.collection("interviews").doc(interviewId).set(
-    {
-      feedbackId: feedbackRef.id,
-      updatedAt: new Date().toISOString(),
-    },
-    { merge: true } // merge so you don’t overwrite existing interview data
-  );
-
+    // ALSO update the corresponding interview document
+    await adminDB.collection("interviews").doc(interviewId).set(
+      {
+        feedbackId: feedbackRef.id,
+        updatedAt: new Date().toISOString(),
+      },
+      { merge: true }
+    );
 
     return { success: true, feedbackId: feedbackRef.id };
   } catch (error) {
@@ -81,8 +165,9 @@ export async function createFeedback(params: CreateFeedbackParams) {
   }
 }
 
+
 export async function getInterviewById(id: string): Promise<Interview | null> {
-  const interview = await db.collection("interviews").doc(id).get();
+  const interview = await adminDB.collection("interviews").doc(id).get();
 
   return interview.data() as Interview | null;
 }
@@ -92,7 +177,7 @@ export async function getFeedbackByInterviewId(
 ): Promise<Feedback | null> {
   const { interviewId, userId } = params;
 
-  const querySnapshot = await db
+  const querySnapshot = await adminDB
     .collection("feedback")
     .where("interviewId", "==", interviewId)
     .where("userId", "==", userId)
@@ -106,29 +191,49 @@ export async function getFeedbackByInterviewId(
   return { id: feedbackDoc.id, ...feedbackDoc.data() } as Feedback;
 }
 
+// export async function getLatestInterviews(
+//   params: GetLatestInterviewsParams
+// ): Promise<Interview[] | null> {
+//   const { userId, limit = 20 } = params;
+
+//   const interviews = await adminDB
+//     .collection("interviews")
+//     .orderBy("createdAt", "desc")
+//     .where("finalized", "==", true)
+//      .where("userId", "!=", userId)
+//     .limit(limit)
+//     .get();
+
+//   return interviews.docs.map((doc) => ({
+//     id: doc.id,
+//     ...doc.data(),
+//   })) as Interview[];
+// }
+
 export async function getLatestInterviews(
   params: GetLatestInterviewsParams
 ): Promise<Interview[] | null> {
   const { userId, limit = 20 } = params;
 
-  const interviews = await db
+  const snapshot = await adminDB
     .collection("interviews")
-    .orderBy("createdAt", "desc")
     .where("finalized", "==", true)
-    .where("userId", "!=", userId)
+    .orderBy("createdAt", "desc")
     .limit(limit)
     .get();
 
-  return interviews.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  })) as Interview[];
+  const interviews = snapshot.docs
+    .map(doc => ({ id: doc.id, ...doc.data() }))
+    .filter((i: any) => i.userId !== userId) as Interview[];
+
+  return interviews;
 }
+
 
 export async function getInterviewsByUserId(
   userId: string
 ): Promise<Interview[] > {
-  const interviews = await db
+  const interviews = await adminDB
     .collection("interviews")
     .where("userId", "==", userId)
     .orderBy("createdAt", "desc")

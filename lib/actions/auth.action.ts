@@ -1,6 +1,6 @@
 "use server";
 
-import { auth, db } from "@/firebase/admin";
+import { adminAuth, adminDB } from "@/firebase/admin";
 import { cookies } from "next/headers";
 
 // Session duration (1 week)
@@ -11,7 +11,7 @@ export async function setSessionCookie(idToken: string) {
   const cookieStore = await cookies();
 
   // Create session cookie
-  const sessionCookie = await auth.createSessionCookie(idToken, {
+  const sessionCookie = await adminAuth.createSessionCookie(idToken, {
     expiresIn: SESSION_DURATION * 1000, // milliseconds
   });
 
@@ -30,7 +30,7 @@ export async function signUp(params: SignUpParams) {
 
   try {
     // check if user exists in db
-    const userRecord = await db.collection("users").doc(uid).get();
+    const userRecord = await adminDB.collection("users").doc(uid).get();
     if (userRecord.exists)
       return {
         success: false,
@@ -38,7 +38,7 @@ export async function signUp(params: SignUpParams) {
       };
 
     // save user to db
-    await db.collection("users").doc(uid).set({
+    await adminDB.collection("users").doc(uid).set({
       name,
       email,
       // profileURL,
@@ -71,7 +71,7 @@ export async function signIn(params: SignInParams) {
   const { email, idToken } = params;
 
   try {
-    const userRecord = await auth.getUserByEmail(email);
+    const userRecord = await adminAuth.getUserByEmail(email);
     if (!userRecord)
       return {
         success: false,
@@ -104,10 +104,10 @@ export async function getCurrentUser(): Promise<User | null> {
   if (!sessionCookie) return null;
 
   try {
-    const decodedClaims = await auth.verifySessionCookie(sessionCookie, true);
+    const decodedClaims = await adminAuth.verifySessionCookie(sessionCookie, true);
 
     // get user info from db
-    const userRecord = await db
+    const userRecord = await adminDB
       .collection("users")
       .doc(decodedClaims.uid)
       .get();
@@ -131,37 +131,3 @@ export async function isAuthenticated() {
   return !! user; // bool value 
 }
 
-// export async function getInterviewsByUserId(userId: string) : Promise<Interview[]> {
-//     const interviews = await db
-//     .collection('interviews')
-//     .where('userId' , '==' ,  userId)
-//     .orderBy('createdAt', 'desc')
-//     .get();
-
-//     if (interviews.empty) return []; 
-
-//     return interviews.docs.map((doc) => ({
-//       id: doc.id,
-//       ...doc.data()
-//     })) as Interview[];
-
-// } 
-
-// export async function getLatestInterviews(params: GetLatestInterviewsParams) : Promise<Interview[]> {
-
-//   const {userId, limit = 20} = params;
-
-//     const interviews = await db
-//     .collection('interviews')
-//     .orderBy('createdAt', 'desc')
-//     .where('finalized' , '==' , true)
-//     .where('userId' , '!=' ,  userId)
-//     .limit(limit)
-//     .get();
-
-//     return interviews.docs.map((doc) => ({
-//       id: doc.id,
-//       ...doc.data()
-//     })) as Interview[];
-
-// } 
