@@ -1,205 +1,409 @@
-# 🤖MockMate
-### AI-Powered Mock Interview Voice Assistant
+<div align="center">
+
+# 👩🏻‍💻MockMate
+
+> *"An AI-powered mock interview platform with live voice sessions, structured feedback, and a protected dashboard — all in one place."*
+
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![Firebase](https://img.shields.io/badge/Firebase-Auth%20%2B%20Firestore-orange?style=flat-square&logo=firebase)
+![Vapi](https://img.shields.io/badge/Vapi-Voice%20AI-purple?style=flat-square)
+[![Gemini AI](https://img.shields.io/badge/Google%20Gemini-4285F4?style=flat-square&logo=google&logoColor=white)](https://ai.google.dev/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+<!-- [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://opensource.org/licenses/ISC) -->
 
 
-*"Don’t practice until you get it right — practice until you can’t get it wrong."*
-
- 
- **MockMate** helps you do exactly that. Meet your **AI interviewer**, get **real-time feedback**, and **master your dream role** — all in one place.
+[🚀Get Started](#-installation) • [✨Features](#-features) • [📸 Screenshots](#-screenshots) • [🏗 Architecture](#-architecture)  • [🤝 Contribute](#-contributing)
 
 
+</div>
 
-<p align="center">
-  <img src="public/banner.png" alt="MockMate Banner" width="100%" />
-</p>
+---
 
+## 😤 The Problem
 
-## What is MockMate?
+Most interview prep tools hand you a list of questions and leave you alone with a text box. That's nothing like a real interview — no pressure, no pacing, no one pushing back. 
 
-**MockMate** is not just another web app — it’s your **personal AI interview partner**.  
-Built with **Next.js**, **Firebase**, **Tailwind CSS**, and powered by **Google Gemini** & **Vapi AI Voice Agents**, it helps users **prepare for job interviews** through **realistic AI conversations**, **instant performance feedback**, and **smart insights**.
+MockMate replaces that static experience with a live AI voice interviewer that actually talks to you, captures what you say, and tells you exactly what went well and what didn't. Practice like it's real, review like it's measurable.
 
-Whether you're preparing for your **first job** or a **career leap**, MockMate brings your interview practice to life — literally.
+<div align="center">
 
+[🔗 Live Link ](mock-mate-nu-nine.vercel.app/)  • [📁 Source Code](https://github.com/sandhya144/MockMate.git)
 
-### Demo Video
-
-[![Watch the Demo](/public/thumbnail.png)](https://youtu.be/KcCg-5KDakk)
+</div>
 
 
-## Tech Stack
+---
 
-| Category | Technology |
-|-----------|-------------|
-| Frontend | **Next.js**, **Tailwind CSS**, **shadcn/ui** |
-| Backend | **Firebase Authentication**, **Firestore Database** |
-| AI & Voice | **Vapi AI**, **Google Gemini** |
-| Validation | **Zod** |
-| Hosting | **Vercel** |
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| 🔐 Auth | Email/password sign-up and sign-in via Firebase, with protected and auth route layouts |
+| 📋 Dashboard | Separates past interviews from available ones; each card links to the right next action |
+| 🎙 Voice Interviews | Live sessions powered by Vapi with real-time transcript capture and call-state UI |
+| 🤖 AI Feedback | Gemini 2.0 Flash generates structured feedback saved to Firestore |
+| 🧠 Smart Scoring | Feedback includes total score, category breakdowns, strengths, and improvement areas |
+| 🖼 Tech Badges | Normalizes stack names, fetches Devicon CDN logos, falls back to a local SVG |
+| 🌙 Dark UI | Responsive dark-themed layout with Tailwind CSS and Mona Sans |
+
+---
+
+## 🏗 Architecture
+
+```mermaid
+graph LR
+    subgraph Browser
+        A[User] --> B[Next.js App Router]
+        B --> C[Auth Form]
+        B --> D[Dashboard]
+        B --> E[Agent Component]
+    end
+
+    subgraph Firebase
+        F[Firebase Auth]
+        G[Firestore DB]
+    end
+
+    subgraph External APIs
+        H[Vapi Voice Service]
+        I[Gemini 2.0 Flash]
+        J[Deepgram - Transcription]
+        K[ElevenLabs - Voice]
+    end
+
+    C -->|createSessionCookie| F
+    D -->|reads interviews + feedback| G
+    E -->|starts call| H
+    H --> J
+    H --> K
+    E -->|createFeedback| I
+    I -->|structured feedback object| G
+    B -->|verifySessionCookie| F
+```
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript |
+| UI | React 19 |
+| Styling | Tailwind CSS 4, `tailwindcss-animate` |
+| Components | shadcn/ui, Radix UI, `lucide-react` |
+| Forms | `react-hook-form`, `zod`, `@hookform/resolvers` |
+| Authentication | Firebase Auth (client + Admin SDK) |
+| Database | Firestore |
+| Voice | `@vapi-ai/web` |
+| AI Generation | `@ai-sdk/google`, Gemini 2.0 Flash |
+| Notifications | `sonner` |
+| Date Formatting | `dayjs` |
+| Font | Mona Sans via `next/font/google` |
+
+---
+
+## 🔄 How It Works
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Browser
+    participant NextServer
+    participant Firebase
+    participant Vapi
+    participant Gemini
+
+    User->>Browser: Visit app
+    Browser->>NextServer: Request protected route
+    NextServer->>Firebase: verifySessionCookie
+    Firebase-->>NextServer: User record
+    NextServer-->>Browser: Render dashboard
+
+    User->>Browser: Start interview
+    Browser->>Vapi: vapi.start with assistant config
+    Vapi-->>Browser: call-start event
+    Vapi->>Browser: Transcript messages during call
+    Browser->>NextServer: call-end - POST createFeedback
+    NextServer->>Gemini: generateObject with transcript
+    Gemini-->>NextServer: Structured feedback object
+    NextServer->>Firebase: Write feedback doc to Firestore
+    NextServer-->>Browser: Redirect to feedback page
+    Browser-->>User: Display score and breakdown
+```
+
+---
+
+## 📸 Screenshots
+
+![Dashboard](public/Dashboard.png)
+![Homepage](public/banner.png)
+![Interview Session](./public/thumbnail.png)
 
 
+---
 
-## Core Features
+## 🚀 Installation
 
-### 🔐 Authentication  
-Sign up and sign in securely using **Firebase Email/Password Authentication**.
+1. **Clone the repository and open the project root:**
 
-### 🎙️ AI Voice Interviews  
-Generate and take interviews with **Vapi AI Voice Agents** — practice talking like a real conversation with an intelligent interviewer.
+```powershell
+cd "c:\Users\sndy6\OneDrive\Desktop\interview ai\MockMate"
+```
 
-### 📊 Dashboard Management  
-View all your created interviews, track your progress, and revisit past sessions with detailed data.
+2. **Install dependencies:**
 
-### 💬 Interactive Transcripts  
-Get **real-time transcripts** of your interview, with timestamps and AI commentary.
-
-### 🧾 Instant AI Feedback  
-Receive **personalized and structured feedback** based on your interview responses — powered by **Google Gemini**.
-
-### 🧱 Modular Architecture  
-Built with reusable and maintainable components for scalability and developer ease.
-
-### 📱 Responsive UI  
-Enjoy a **modern**, **minimal**, and **fully responsive** interface that looks great on any device.
-
-
-
-## How It Works?
-
-**Step-by-step Explanation:**
-
-### Frontend (Next.js + Tailwind CSS):
-- The user interacts with a beautiful, responsive interface built with Next.js and TailwindCSS.
-- This includes the login page, dashboard, and interview screen.
-
-### Firebase (Auth + Firestore):
-Firebase handles two main things:
-
-- Authentication: Sign Up / Sign In using email and password.
-
-- Data Storage: Saves user data, interview sessions, and transcripts securely in Firestore.
-
-### Vapi Voice Agent + Google Gemini (AI Brain):
-When the user starts an interview:
-
-- Vapi AI creates a voice-based conversation (like talking to a real interviewer).
-
-- Google Gemini provides context-aware answers and feedback using custom prompts you’ve written (so it knows the role, tone, and difficulty level).
-
-### AI Feedback Engine:
-After the interview ends, the system generates personalized feedback — highlighting strengths, weaknesses, and improvement tips.
-This feedback is stored in the user’s dashboard for review.
-
-
-### 🪄 Custom Prompting Power
-
-MockMate doesn’t rely on generic AI answers.  
-- It uses **custom prompt engineering** to make every interview feel unique and real. The AI tailors its tone, questions, and feedback based on:
-- The **role** you choose (e.g., Frontend Developer, Data Analyst)
-- Your **experience level**
-- Your **performance throughout the conversation**
-
-Every session feels like a true **human-to-human interview** — powered by next-gen AI.
-
-
-## Why MockMate is Built Different
-
-- Combines **AI + Voice + Real-time Feedback**  
-- Integrates **Google Gemini + Vapi Voice AI** seamlessly.  
-- Built with **(Next.js 14)**  
-- Uses **shadcn/ui + Tailwind CSS** for clean, elegant UI.  
-- Hosted with **Vercel** for fast global access  
-
-MockMate isn’t just built — it’s **crafted** to inspire the future of AI-based learning.
-
-
-## Future Enhancements
-
-- Role-based analytics and performance leaderboard  
-- Voice tone and sentiment analysis  
-- Progress tracking with improvement graphs  
-- Support for multilingual interviews  
-- Personality insights and emotional feedback  
-
-
-## Getting Started
-
-### 🪶 Prerequisites
-- Node.js 18+
-- Firebase Project
-- Vapi AI API Key
-- Google Gemini API access
-
-
-### ⚙️ Installation Steps
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/mockmate.git
-
-# Move into the project directory
-cd mockmate
-
-# Install dependencies
+```powershell
 npm install
+```
 
-# Add your environment variables
-# Create a .env.local file and include:
-NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
-VAPI_API_KEY=your_vapi_key
-GEMINI_API_KEY=your_gemini_key
+3. **Create `.env.local` and add the required values:**
 
-# Run the development server
+```env
+NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_web_token
+NEXT_PUBLIC_VAPI_WORKFLOW_ID=your_vapi_workflow_id
+FIREBASE_PROJECT_ID=your_firebase_project_id
+FIREBASE_CLIENT_EMAIL=your_firebase_client_email
+FIREBASE_PRIVATE_KEY=your_firebase_private_key
+```
+
+> **Note:** The Firebase client config (`firebase/client.ts`) is currently hardcoded. The `.env.local` values above cover Vapi and Firebase Admin only.
+
+4. **Start the development server:**
+
+```powershell
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to see the app.
+
+---
+
+## 📁 Project Structure
+
+```text
+MockMate
+├── app
+│   ├── (auth)
+│   │   ├── layout.tsx                 # Redirect authenticated users
+│   │   ├── sign-in
+│   │   │   └── page.tsx
+│   │   └── sign-up
+│   │       └── page.tsx
+│   │
+│   ├── (root)
+│   │   ├── interview
+│   │   │   ├── page.tsx               # Generate interview
+│   │   │   └── [id]
+│   │   │       ├── page.tsx           # Live interview
+│   │   │       └── feedback
+│   │   │           └── page.tsx       # Interview feedback
+│   │   │
+│   │   ├── layout.tsx                 # Protected application shell
+│   │   └── page.tsx                   # Dashboard
+│   │
+│   ├── api
+│   │   └── vapi
+│   │       └── generate
+│   │           └── route.ts           # Generate interview questions
+│   │
+│   ├── globals.css
+│   └── layout.tsx
+│
+├── components
+│   ├── ui                            # shadcn/ui reusable components
+│   ├── Agent.tsx
+│   ├── AuthForm.tsx
+│   ├── DisplayTechIcons.tsx
+│   └── InterviewCard.tsx
+│
+├── constants
+│   └── index.ts
+│
+├── firebase
+│   ├── admin.ts
+│   └── client.ts
+│
+├── lib
+│   ├── actions
+│   │   ├── auth.action.ts
+│   │   └── general.action.ts
+│   ├── utils.ts
+│   └── vapi.sdk.ts
+│
+├── public
+│   ├── covers
+│   ├── banner.png
+│   ├── logo.svg
+│   └── ...
+│
+├── types
+│   ├── index.d.ts
+│   └── vapi.d.ts
+│
+├── package.json
+├── next.config.ts
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## 📡 API Reference
+
+### `GET /api/vapi/generate`
+
+Health check endpoint.
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": "Thank you!"
+}
+```
+
+---
+
+### `POST /api/vapi/generate`
+
+Generates interview questions with Gemini and saves the interview to Firestore.
+
+**Request body:**
+```json
+{
+  "type": "technical",
+  "role": "Frontend Developer",
+  "level": "Junior",
+  "techstack": "React,TypeScript,Next.js",
+  "amount": 5,
+  "userid": "firebase-user-id"
+}
+```
+
+**Success response:**
+```json
+{
+  "success": true,
+  "id": "firestore-document-id"
+}
+```
+
+**Error response:**
+```json
+{
+  "success": false,
+  "error": "Gemini returned invalid JSON questions"
+}
+```
+
+---
+
+## 🛠 Troubleshooting
+
+```mermaid
+flowchart TD
+    Start[Developer hits a problem] --> Q1{Which error?}
+
+    Q1 -->|This email is already in use| A1[Email already registered in Firebase Auth]
+    A1 --> A2[Sign in instead of signing up]
+    A2 --> A3[Or delete user in Firebase Console and retry]
+
+    Q1 -->|Failed to log into account| B1[Session cookie creation failed]
+    B1 --> B2[Confirm account exists in Firebase Auth]
+    B2 --> B3[Clear site data in browser]
+    B3 --> B4[Restart dev server with npm run dev]
+
+    Q1 -->|Gemini returned invalid JSON questions| C1[Gemini response could not be parsed]
+    C1 --> C2[Check AI SDK credentials in .env.local]
+    C2 --> C3[Retry the POST request]
+    C3 --> C4[Restart dev server if env was changed]
+```
+
+<details>
+<summary>🔴 <strong>This email is already in use</strong></summary>
+
+**Why it happens:** `Authform.tsx` calls Firebase Auth first; if the email already exists, sign-up is rejected before writing to Firestore.
+
+**Fix:** Sign in with the same email. To force a fresh account, delete the existing Firebase Auth user from the Firebase Console and retry.
+
+</details>
+
+<details>
+<summary>🔴 <strong>Failed to log into account. Please try again.</strong></summary>
+
+**Why it happens:** The sign-in server action could not create the session cookie — usually because the Firebase Auth user is missing, the ID token wasn't produced, or the browser holds a stale session.
+
+**Fix:** Confirm the account exists, clear browser site data, and restart the dev server:
+```powershell
+npm run dev
+```
+
+</details>
+
+<details>
+<summary>🔴 <strong>Gemini returned invalid JSON questions</strong></summary>
+
+**Why it happens:** The POST handler in `app/api/vapi/generate/route.ts` expected a JSON object with a `questions` array, but Gemini's response could not be cleanly parsed.
+
+**Fix:** Confirm `@ai-sdk/google` credentials are set in `.env.local`, retry the request, then restart if you made env changes:
+```powershell
+npm run dev
+```
+
+</details>
+
+---
+
+## 🗺 Roadmap
+
+- [ ] Wire `/api/vapi/generate` into the visible UI or remove it if the Vapi workflow is the only intended generation path
+- [ ] Move hardcoded Firebase client config out of `firebase/client.ts` into environment variables
+- [ ] Stop suppressing lint and TypeScript errors in `next.config.ts` so build failures surface early
+- [ ] Restore an explicit empty-state UI for missing feedback on the feedback page
+- [ ] Add loading and error states around the Vapi call lifecycle in `Agent.tsx`
+- [ ] Add a `LICENSE` file to make the repository's reuse terms explicit
+
+---
+
+## 🤝 Contributing
+
+```powershell
+# 1. Start from the latest main branch
+git checkout main
+
+# 2. Pull latest changes
+git pull origin main
+
+# 3. Create a feature branch
+git checkout -b feature/your-feature-name
+
+# 4. Verify changes locally
 npm run dev
 
+# 5. Stage and commit
+git add .
+git commit -m "feat: describe your change"
+
+# 6. Push and open a PR
+git push -u origin feature/your-feature-name
 ```
 
-Then visit http://localhost:3000
+Open a pull request from your branch into `main` and review the diff before merging.
+
+---
+
+## 📬 Contact & Acknowledgements
+
+**Author:** Sandhya Pandey
+
+Built with 💖 [Next.js](https://nextjs.org/), [Firebase](https://firebase.google.com/), [Vapi](https://vapi.ai/), and [Google Gemini](https://deepmind.google/technologies/gemini/).
+
+<div align="center">
 
 
-## Project Structure
-
-```
-mockmate/
-├── app/                    │ Next.js App directory
-│   ├── (auth)/             │ Auth pages: sign-in, sign-up
-│   ├── (dashboard)/        │ User dashboard & interview list
-│   ├── (interview)/        │ Interview page & transcript UI
-│   ├── api/                │ API route handlers
-│   ├── layout.tsx          │ Root layout
-│   └── page.tsx            │ Landing page
-├── components/             │ Reusable UI components
-│   ├── ui/                 │ shadcn/ui components (buttons, inputs, modals)
-│   └── custom/             │ Project-specific components (InterviewCard, Navbar)
-├── lib/                    │ Libraries and config (Firebase, helpers)
-├── utils/                  │ Utility functions & validators
-├── styles/                 │ Global styling + Tailwind config
-├── public/                 │ Images, icons, banners
-├── .env.local              │ Environment variables
-├── package.json            │ Project dependencies & scripts
-└── README.md               │ Project documentation
-```
-
-## Vision
-
-- MockMate represents the future of AI learning —
-a bridge between technology and self-improvement, designed for people who want to grow smarter, faster, and more confident in interviews.
-
-Be interview-ready. Be unstoppable. 
-
-## Author
-
-Sandhya Pandey
+[⬆ Back to top](#mockmate)
 
 
-## Show Your Support
-
-- If you found MockMate inspiring or helpful, please consider giving it a ⭐ on GitHub!
-- It motivates future innovations and helps others discover it.
-
-Built with ❤️ using Next.js, Firebase, TailwindCSS, and AI magic.✨
+---
