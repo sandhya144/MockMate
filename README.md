@@ -13,7 +13,7 @@
 <!-- [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg?style=flat-square)](https://opensource.org/licenses/ISC) -->
 
 
-[🚀Get Started](#-installation) • [✨Features](#-features) • [📸 Screenshots](#-screenshots) • [🏗 Architecture](#-architecture)  • [🤝 Contribute](#-contributing)
+[ Get Started ](#-installation) • [ Features ](#-features) • [ Screenshots ](#-screenshots) • [ Architecture ](#-architecture)  • [ Contribute ](#-contributing)
 
 
 </div>
@@ -28,7 +28,7 @@ MockMate replaces that static experience with a live AI voice interviewer that a
 
 <div align="center">
 
-[🔗 Live Link ](mock-mate-nu-nine.vercel.app/)  • [📁 Source Code](https://github.com/sandhya144/MockMate.git)
+[ Live Link ](mock-mate-nu-nine.vercel.app/)  • [ Source Code](https://github.com/sandhya144/MockMate.git)
 
 </div>
 
